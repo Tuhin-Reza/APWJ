@@ -117,8 +117,6 @@ public class TaxController {
         }
 
 
-
-
         int payAllowance=BasicSalaryYearly+ HouseRentYearly+MedicalAllowanceYearly+CAllowanceYearly+ BonusYearly;
         int amountExemptedIncome= (int) ((int) (0.5*BasicSalaryYearly)+(0.1*BasicSalaryYearly))+30000;
         int netTaxableIncome=BasicSalaryYearly+HouseRentExempted+MedicalAllowanceExempted+CAllowanceExempted+BonusYearly;
