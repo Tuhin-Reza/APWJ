@@ -2,8 +2,10 @@
     <title>Index</title>
 </head><html>
 <body>
-<br>
-<a href="Departments/list"><h4>Department</h4></a>
-<a href="LeaveApplications/employeeCreate"><h4>Leave Application</h4></a>
+<P><a href="students/create">Student</a></P>
+<P><a href="students/get">Get Student</a></P>
+<P><a href="student_guardians/create">Student Guardian</a></P>
+<P><a href="student_guardians/get">Get Student Guardian</a></P>
+<P></P>
 </body>
 </html>
