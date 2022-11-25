@@ -18,7 +18,7 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.repository", "com.service", "com.controller", "com.domain"})
+@ComponentScan(basePackages = {"com.repository", "com.service", "com.controller", "com.domain","com.exception"})
 public class AppConfig {
 
     @Bean

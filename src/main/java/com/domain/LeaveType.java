@@ -1,6 +1,8 @@
 package com.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "leave_type")
@@ -11,9 +13,11 @@ public class LeaveType {
     private  Long leave_id;
 
     @Column(name="category")
+    @NotEmpty
     private  String category;
 
     @Column(name="total_days")
+    @Min(2)
     private int total_days;
 
     public Long getLeave_id() {

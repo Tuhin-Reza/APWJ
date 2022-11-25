@@ -1,5 +1,10 @@
 package com.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -10,8 +15,13 @@ public class LeaveApplication {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "leave_application_id")
     private Long leave_application_id;
+
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Column(name = "form_date")
     private LocalDate form_date;
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     @Column(name = "to_date")
     private LocalDate to_date;
     @Column(name = "total_days")
