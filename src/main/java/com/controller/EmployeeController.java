@@ -33,7 +33,7 @@ public class EmployeeController {
         employee.setGender("Male");
         employee.setJoining_date(LocalDate.of(2022,11,24));
         employee.setStatus("Mouse");
-        employeeService.insert(employee);
+        //employeeService.insert(employee);
     }
 
     @RequestMapping("/get")

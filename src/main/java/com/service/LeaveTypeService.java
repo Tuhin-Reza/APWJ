@@ -1,10 +1,13 @@
 package com.service;
 
 
+import com.domain.LeaveApplication;
 import com.domain.LeaveType;
 import com.repository.LeaveTypeRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional
@@ -24,5 +27,10 @@ public class LeaveTypeService {
     @Transactional(readOnly = true)
     public LeaveType get(Long leave_id ) {
         return leaveTypeRepository.get(leave_id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<LeaveType> getAll() {
+        return leaveTypeRepository.getAll();
     }
 }

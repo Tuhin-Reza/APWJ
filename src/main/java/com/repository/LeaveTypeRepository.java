@@ -1,6 +1,7 @@
 package com.repository;
 
 
+import com.domain.LeaveApplication;
 import com.domain.LeaveType;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -32,6 +33,11 @@ public class LeaveTypeRepository {
     public LeaveType get(Long leave_id) {
         Session session = sessionFactory.getCurrentSession();
         return session.get(LeaveType.class, leave_id);
+    }
+    public List<LeaveType> getAll() {
+        Session session = sessionFactory.getCurrentSession();
+        Query<LeaveType> leaveTypeQuery = session.createQuery("from LeaveType", LeaveType.class);
+        return leaveTypeQuery.getResultList();
     }
 
 

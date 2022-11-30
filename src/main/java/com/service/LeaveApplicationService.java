@@ -5,6 +5,8 @@ import com.repository.LeaveApplicationRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class LeaveApplicationService {
@@ -25,5 +27,21 @@ public class LeaveApplicationService {
     public LeaveApplication get(Long leave_application_id) {
         return leaveApplicationRepository.get(leave_application_id);
     }
+    @Transactional(readOnly = true)
+    public List<LeaveApplication> getAll() {
+        return leaveApplicationRepository.getAll();
+    }
+
+    @Transactional
+    public LeaveApplication update(LeaveApplication leaveApplication) {
+        return leaveApplicationRepository.update(leaveApplication);
+    }
+
+    @Transactional
+    public void delete(Long leave_application_id ) {
+        leaveApplicationRepository.delete(leave_application_id);
+    }
+
+
 
 }
