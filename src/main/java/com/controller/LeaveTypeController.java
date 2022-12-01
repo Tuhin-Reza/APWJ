@@ -1,20 +1,15 @@
 package com.controller;
 
-import com.domain.LeaveApplication;
 import com.domain.LeaveType;
-import com.exception.BadRequestAlertException;
 import com.service.LeaveTypeService;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.validation.Valid;
-import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -44,14 +39,24 @@ public class LeaveTypeController {
         return ResponseEntity.ok().body(LeaveType);
     }
     @PostMapping("/create-leave-type")
-    public ResponseEntity<LeaveType> createLeaveType(@Valid @RequestBody LeaveType leaveType) throws Exception {
-        if (leaveType.getLeave_id() != null) {
-            throw new BadRequestAlertException("A new leave application cannot have an id value");
-        }
+    public ResponseEntity<?>save(@RequestBody LeaveType leaveType){
         leaveTypeService.insert(leaveType);
-        return ResponseEntity.created(new URI("/create-leave-applications/"))
-                .body(leaveType);
+        return ResponseEntity.ok().body("Book created edit id");
+
     }
+
+//    public ResponseEntity<LeaveType> createLeaveType(@Valid @RequestBody LeaveType leaveType) throws Exception {
+//        if (leaveType.getLeave_id() != null) {
+//            throw new BadRequestAlertException("A new leave application cannot have an id value");
+//        }
+//        leaveTypeService.insert(leaveType);
+//        return ResponseEntity.created(new URI("/create-leave-applications/"))
+//                .body(leaveType);
+//    }
+//      @PostMapping("/account")
+//      public LeaveType  create (@RequestBody LeaveType leaveType){
+//       return leaveTypeService.insert(leaveType);
+//      }
     @RequestMapping(method= RequestMethod.POST, value="/leave-type")
     public void addEmployee(@RequestBody LeaveType leaveType){
 
