@@ -18,5 +18,6 @@
 <br>
 <p><a href="users/list">User List</a></p>
 <p><a href="authorities/list">Authority List</a></p>
+<p><a href="admins/home">Admin</a></p>
 </body>
 </html>
