@@ -152,6 +152,7 @@ public class TaxController {
         Tax tax=new Tax();
 
 
+
         if(CTPC.equals("General")) {
             if (netTaxableIncome>General){
                 model.addAttribute("General",General);
