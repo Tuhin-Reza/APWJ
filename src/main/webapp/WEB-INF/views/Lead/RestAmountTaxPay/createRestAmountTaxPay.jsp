@@ -14,15 +14,8 @@
     <title>Title</title>
 </head>
 <body>
-<form:form action="submitTaxRatePayCat" modelAttribute="taxRatePayCat">
 <table>
-    <tr>
-        <td>Category:</td>
-        <td>
-            <form:input path="category" id="category"/><br>
-            <form:errors path="category" cssClass="error"/>
-        </td>
-    </tr>
+<form:form action="submitRestAmountTaxPay" modelAttribute="restAmountTaxPay">
     <tr>
         <td>Amount :</td>
         <td>
@@ -39,12 +32,14 @@
     </tr>
     <tr>
         <td colspan='2'>
-            <input type="submit" value="Register">
+            <input type="submit" value="submit">
             <input type="reset" value="Reset" />
         </td>
     </tr>
-</table>
 </form:form>
-<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br>
+</table>
+
+<br>
+<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br><br>
 </body>
 </html>

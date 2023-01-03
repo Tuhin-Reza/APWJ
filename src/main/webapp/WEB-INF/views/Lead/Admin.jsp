@@ -14,7 +14,26 @@
     <title>Title</title>
 </head>
 <body>
-<input type="button" value="Exempted All" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/listExemptedPercentage';return false;"><br>
+<input type="button" value="Authorities List" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/authorities/list';return false;"><br><br>
+
+<input type="button" value="Add Tax Zone & Percentage All" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/listTaxZone';return false;"><br><br>
+<input type="button" value="Tax Rate Payable and Category All" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/listTaxRatePayCat';return false;"><br><br>
+<input type="button" value="Tax Payer Category All" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/listTaxPayerCategory';return false;"><br><br>
+
+<input type="button" value="Exempted All" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/listExemptedPercentage';return false;"><br><br>
+<input type="button" value="Rest Amount Tax Payable All" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/listRestAmountTaxPay';return false;"><br><br>
+
+
+
+
+<input type="button" value="" onclick="window.location.href='';return false;"><br><br>
+<input type="button" value="" onclick="window.location.href='';return false;"><br><br>
+<input type="button" value="" onclick="window.location.href='';return false;"><br><br>
+
+
+
+
+
 
 </body>
 </html>

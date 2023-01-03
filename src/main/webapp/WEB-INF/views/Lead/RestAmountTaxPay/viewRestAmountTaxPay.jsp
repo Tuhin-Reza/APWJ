@@ -14,8 +14,8 @@
     <title>Title</title>
 </head>
 <body>
-<input type="button" value="Add Exempted" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/createExemptedPercentage';return false;"><br><br>
-<c:if test="${!empty exemptedPercentages}">
+<input type="button" value="Add RestAmountTaxPay" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/createRestAmountTaxPay';return false;"><br><br>
+<c:if test="${!empty restAmountTaxPays}">
     <table align="left" border="1">
         <thead>
         <tr>
@@ -25,22 +25,23 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${exemptedPercentages}" var="exemptedPercentage">
+        <c:forEach items="${restAmountTaxPays}" var="restAmountTaxPay">
             <tr>
-                <c:url var="updateLink" value="/admins/editExemptedPercentage">
-                    <c:param name="exemptedPercentage_id" value="${exemptedPercentage.id}" />
+                <c:url var="updateLink" value="/admins/restAmountTaxPayEdit">
+                    <c:param name="id" value="${restAmountTaxPay.id}" />
                 </c:url>
-                <c:url var="deleteLink" value="/admins/deleteExemptedPercentage">
-                    <c:param name="exemptedPercentage_id" value="${exemptedPercentage.id}" />
+                <c:url var="deleteLink" value="/admins/deleteRestAmountTaxPay">
+                    <c:param name="id" value="${restAmountTaxPay.id}" />
                 </c:url>
-                <td>${exemptedPercentage.name}</td>
-                <td>${exemptedPercentage.percentage}%</td>
+                <td>${restAmountTaxPay.amount}</td>
+                <td>${restAmountTaxPay.percentage}</td>
                 <td><a href="${updateLink}">Update</a> | <a href="${deleteLink}">Delete</a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </c:if>
-
+<br><br><br>
+<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br><br>
 </body>
 </html>

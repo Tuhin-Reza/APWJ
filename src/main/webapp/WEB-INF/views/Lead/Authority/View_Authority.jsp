@@ -15,7 +15,8 @@
 </head>
 <body>
 <br>
-<input type="button" value="Add Authority" onclick="window.location.href='create';return false;"><br><br>
+<input type="button" value="Add Authority" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/authorities/create';return false;"><br><br>
+<form:form>
 <c:if test="${!empty authorities}">
     <table align="left" border="1">
         <thead>
@@ -40,5 +41,8 @@
         </tbody>
     </table>
 </c:if>
+</form:form>
+<br>
+<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br>
 </body>
 </html>

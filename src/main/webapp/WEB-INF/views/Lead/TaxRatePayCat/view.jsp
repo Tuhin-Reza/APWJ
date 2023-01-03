@@ -14,39 +14,37 @@
     <title>Title</title>
 </head>
 <body>
-<input type="button" value="Add User" onclick="window.location.href='create';return false;"><br><br>
-<c:if test="${!empty }">
+<input type="button" value="Add Tax Rate Payable&Category" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/createTaxRatePayCat';return false;"><br><br>
+<form:form>
+<c:if test="${!empty taxRatePayCats}">
     <table align="left" border="1">
         <thead>
         <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Percentage</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${}" var="">
+        <c:forEach items="${taxRatePayCats}" var="taxRatePayCat">
             <tr>
-                <c:url var="updateLink" value="/admin/">
-                    <c:param name="" value="${}" />
+                <c:url var="updateLink" value="/admins/editTaxRatePayCat">
+                    <c:param name="id" value="${taxRatePayCat.id}" />
                 </c:url>
-                <c:url var="deleteLink" value="/admin/">
-                    <c:param name="" value="${}" />
+                <c:url var="deleteLink" value="/admins/deleteTaxRatePayCat">
+                    <c:param name="id" value="${taxRatePayCat.id}" />
                 </c:url>
-                <td>${.}</td>
-                <td>${.}</td>
-                <td>${.}</td>
-                <td>${.}</td>
-                <td>${.}</td>
-                <td>${.}</td>
+                <td>${taxRatePayCat.category}</td>
+                <td>${taxRatePayCat.amount}</td>
+                <td>${taxRatePayCat.percentage}</td>
                 <td><a href="${updateLink}">Update</a> | <a href="${deleteLink}">Delete</a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </c:if>
-
+</form:form>
+<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br>
 </body>
 </html>

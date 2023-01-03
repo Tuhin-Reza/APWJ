@@ -1,6 +1,7 @@
 package com.repository;
 
 import com.domain.ExemptedPercentage;
+import com.domain.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

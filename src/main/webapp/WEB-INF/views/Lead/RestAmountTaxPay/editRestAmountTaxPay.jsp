@@ -15,40 +15,26 @@
 </head>
 <body>
 <table>
-    <form:form action="" modelAttribute="">
+    <form:form action="restAmountTaxPayUpdate" modelAttribute="restAmountTaxPay">
         <tr>
-            <td>:</td>
+            <td>Id</td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass=""/>
+                <form:input type="hidden" path="id"readonly="true"/>
+                <form:errors path="id" cssClass="error"/>
             </td>
         </tr>
         <tr>
-            <td>:</td>
+            <td>Amount :</td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
+                <form:input path="amount" id="amount"/><br>
+                <form:errors path="amount" cssClass="error"/>
             </td>
         </tr>
         <tr>
-            <td>:</td>
+            <td>Percentage :</td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>:</td>
-            <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>:</td>
-            <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
+                <form:input path="percentage" id="percentage"/><br>
+                <form:errors path="percentage" cssClass="error"/>
             </td>
         </tr>
         <tr>
@@ -59,6 +45,7 @@
         </tr>
     </form:form>
 </table>
-
+<br>
+<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br><br>
 </body>
 </html>

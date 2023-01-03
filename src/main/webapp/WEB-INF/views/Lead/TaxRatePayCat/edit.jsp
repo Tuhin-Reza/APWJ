@@ -15,40 +15,33 @@
 </head>
 <body>
 <table>
-    <form:form action="" modelAttribute="">
+    <form:form action="updateTaxRatePayCat" modelAttribute="taxRatePayCat">
         <tr>
-            <td>:</td>
+            <td></td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass=""/>
+                <form:input type="hidden" path="id" id="id"/><br>
+                <form:errors path="id" cssClass=""/>
             </td>
         </tr>
         <tr>
-            <td>:</td>
+            <td>Category:</td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
+                <form:input path="category" id="category"/><br>
+                <form:errors path="category" cssClass="error"/>
             </td>
         </tr>
         <tr>
-            <td>:</td>
+            <td>Amount :</td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
+                <form:input path="amount" id="amount"/><br>
+                <form:errors path="amount" cssClass="error"/>
             </td>
         </tr>
         <tr>
-            <td>:</td>
+            <td>Percentage:</td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>:</td>
-            <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
+                <form:input path="percentage" id="percentage"/><br>
+                <form:errors path="percentage" cssClass="error"/>
             </td>
         </tr>
         <tr>
@@ -59,6 +52,6 @@
         </tr>
     </form:form>
 </table>
-
+<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br>
 </body>
 </html>

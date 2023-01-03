@@ -1,6 +1,7 @@
 package com.service;
 
 import com.domain.ExemptedPercentage;
+import com.domain.User;
 import com.repository.ExemptedPercentageRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,7 +38,6 @@ public class ExemptedPercentageServiceImpl implements ExemptedPercentageService 
     public ExemptedPercentage update(ExemptedPercentage exemptedPercentage) {
         return exemptedPercentageRepository.update(exemptedPercentage);
     }
-
     @Transactional
     public void delete(Long id) {
         exemptedPercentageRepository.delete(id);

@@ -15,40 +15,27 @@
 </head>
 <body>
 <table>
-    <form:form action="" modelAttribute="">
+    <form:form action="updateTaxZone" modelAttribute="taxZone">
         <tr>
-            <td>:</td>
+            <td>Id</td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass=""/>
+                <form:input type="hidden" path="id" id="id"/><br>
+                <form:errors path="id" cssClass="error"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Zone:</td>
+            <td>
+                <form:input path="zone" id="zone"/><br>
+                <form:errors path="zone" cssClass="error"/>
             </td>
         </tr>
         <tr>
-            <td>:</td>
+            <td>percentage:</td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>:</td>
-            <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>:</td>
-            <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>:</td>
-            <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
+                <form:input path="percentage" id="percentage"/><br>
+                <form:errors path="percentage" cssClass="error"/>
             </td>
         </tr>
         <tr>
@@ -56,9 +43,9 @@
                 <input type="submit" value="Register">
                 <input type="reset" value="Reset" />
             </td>
-        </tr>
     </form:form>
 </table>
-
+<br>
+<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br>
 </body>
 </html>

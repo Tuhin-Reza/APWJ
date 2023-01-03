@@ -15,50 +15,30 @@
 </head>
 <body>
 <table>
-    <form:form action="" modelAttribute="">
+    <form:form action="updateTaxPayerCategory" modelAttribute="taxPayerCategory">
         <tr>
-            <td>:</td>
+            <td></td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass=""/>
+                <form:input type="hidden" path="id" readonly="true" />
+                <form:errors path="id" cssClass="error"/>
             </td>
         </tr>
         <tr>
-            <td>:</td>
+            <td>Name:</td>
             <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>:</td>
-            <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>:</td>
-            <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>:</td>
-            <td>
-                <form:input path="" id=""/><br>
-                <form:errors path="" cssClass="error"/>
+                <form:input path="name" id="name"/><br>
+                <form:errors path="name" cssClass="error"/>
             </td>
         </tr>
         <tr>
             <td colspan='2'>
-                <input type="submit" value="Register">
+                <input type="submit" value="Submit">
                 <input type="reset" value="Reset" />
             </td>
         </tr>
     </form:form>
 </table>
-
+<br>
+<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br><br>
 </body>
 </html>

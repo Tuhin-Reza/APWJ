@@ -42,7 +42,7 @@ public class AuthorityController {
         User user = new User();
         Authority authority= new Authority();
         model.addAttribute("authority",authority);
-        return "Authority/Create_Authority";
+        return "Lead/Authority/Create_Authority";
     }
 
     @RequestMapping("/submit")
@@ -52,20 +52,20 @@ public class AuthorityController {
             authorityService.create(authority);
             return "redirect:/authorities/list";
         }
-        return "Authority/Create_Authority";
+        return "Lead/Authority/Create_Authority";
     }
 
     @RequestMapping("/list")
     public String list(Model model) throws SQLException {
         List<Authority> authorities = authorityService.list();
         model.addAttribute("authorities",authorities);
-        return "Authority/View_Authority";
+        return "Lead/Authority/View_Authority";
     }
 
     @RequestMapping("/edit")
     public String edit(@RequestParam("authority_id") Long authority_id, Model model) throws SQLException {
         model.addAttribute("authority",authorityService.get(authority_id));
-        return "Authority/Edit_Authority";
+        return "Lead/Authority/Edit_Authority";
     }
 
     @RequestMapping("/update")
@@ -74,7 +74,7 @@ public class AuthorityController {
             authorityService.update(authority);
             return "redirect:/authorities/list";
         }
-        return "Authority/Edit_Authority";
+        return "Lead/Authority/Edit_Authority";
     }
 
     @RequestMapping("/delete")
