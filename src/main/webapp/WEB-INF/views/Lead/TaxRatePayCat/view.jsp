@@ -22,7 +22,6 @@
         <tr>
             <th>Category</th>
             <th>Amount</th>
-            <th>Percentage</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -37,7 +36,6 @@
                 </c:url>
                 <td>${taxRatePayCat.category}</td>
                 <td>${taxRatePayCat.amount}</td>
-                <td>${taxRatePayCat.percentage}</td>
                 <td><a href="${updateLink}">Update</a> | <a href="${deleteLink}">Delete</a></td>
             </tr>
         </c:forEach>
@@ -45,6 +43,7 @@
     </table>
 </c:if>
 </form:form>
+<br><br>
 <input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br>
 </body>
 </html>

@@ -31,11 +31,16 @@ public class UserController {
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
         webDataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
+
+    @RequestMapping("/home")
+    public String show() {
+        return "User/UserHome";
+    }
     @RequestMapping("/create")
     public String show(Model model) {
         User user = new User();
         model.addAttribute("user",user);
-        return "User/User_Registration";
+        return "User/Registration/User_Registration";
         //return "redirect:/users/list";
     }
 
@@ -44,21 +49,21 @@ public class UserController {
     public String submit(@Valid @ModelAttribute("user") User user, BindingResult bindingResult)  {
         if (!bindingResult.hasErrors()) {
             userService.create(user);
-            return "redirect:/users/list";
+            return "User/UserHome";
         }
-        return "User/User_Registration";
+        return "User/Registration/User_Registration";
     }
     @RequestMapping("/list")
     public String list(Model model) throws SQLException {
         List<User> users = userService.list();
         model.addAttribute("users",users);
-        return "User/User_View";
+        return "User/Registration/User_View";
        // return "User/User_Registration";
     }
     @RequestMapping("/edit")
     public String edit(@RequestParam("user_id") Long user_id, Model model) throws SQLException {
         model.addAttribute("user", userService.get(user_id));
-        return "User/User_Edit";
+        return "User/Registration/User_Edit";
     }
 
     @RequestMapping("/update")
@@ -67,7 +72,7 @@ public class UserController {
             userService.update(user);
             return "redirect:/users/list";
         }
-        return "User/User_Edit";
+        return "User/Registration/User_Edit";
 
     }
     @RequestMapping("/delete")

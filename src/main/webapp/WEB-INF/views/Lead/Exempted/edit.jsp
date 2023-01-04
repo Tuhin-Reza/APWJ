@@ -17,7 +17,7 @@
 <table>
     <form:form action="updateExemptedPercentage" modelAttribute="exemptedPercentage" >
         <tr>
-            <td>Id</td>
+            <td></td>
             <td>
                 <form:input type="hidden" path="id" readonly="true" />
                 <form:errors path="id" cssClass="error"/>
@@ -26,7 +26,7 @@
         <tr>
             <td>Name :</td>
             <td>
-                <form:input path="name" id="name"/><br>
+                <form:input path="name" id="name" readonly="true"/><br>
                 <form:errors path="name" cssClass="error"/>
             </td>
         </tr>

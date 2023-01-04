@@ -1,14 +1,19 @@
 package com.controller;
 
 import com.domain.Tax;
+import com.domain.TaxHistory;
 import com.domain.TaxVariable;
 import com.repository.TaxRepository;
+import com.service.TaxHistoryService;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,12 +29,14 @@ public class TaxController {
 
     private TaxRepository taxRepository;
     private DataSource dataSource;
+    private TaxHistoryService taxHistoryService;
 
 
 
-    public TaxController(TaxRepository taxRepository, DataSource dataSource) {
+    public TaxController(TaxHistoryService taxHistoryService,TaxRepository taxRepository, DataSource dataSource) {
         this.taxRepository =  taxRepository;
         this.dataSource = dataSource;
+        this.taxHistoryService=taxHistoryService;
     }
 
     @InitBinder
@@ -520,23 +527,66 @@ public class TaxController {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("select * from taxcalculator");
 
-//        List<TaxVariable> taxVariables = new ArrayList<TaxVariable>();
-//        while(resultSet.next()) {
-//            TaxVariable taxVariable=new TaxVariable();
-//            taxVariable.setId(resultSet.getInt(1));
-//            taxVariable.setTaxPayerCategory(resultSet.getString(2));
-//            taxVariable.setZone(resultSet.getString(3));
-//            taxVariable.setNetTaxAbleIncome(resultSet.getInt(4));
-//            taxVariable.setTaxLiabilityAmount(resultSet.getInt(5));
-//            taxVariable.setTotalPayAbleTaxAmount(resultSet.getInt(6));
-//            taxVariable.setTotalPayAbleTaxAmountM(resultSet.getInt(7));
-//            taxVariables.add(taxVariable);
-//            model.addAttribute("taxVariables",taxVariables);
-//        }
-//        for(TaxVariable taxVariable: taxVariables) {
-//            System.out.println(taxVariable.getId());
-//        }
-        return "tax/TaxCalculatorHistory";
+        List<TaxVariable> taxVariables = new ArrayList<TaxVariable>();
+        while(resultSet.next()) {
+            TaxVariable taxVariable=new TaxVariable();
+            taxVariable.setId(resultSet.getInt(1));
+            taxVariable.setTaxPayerCategory(resultSet.getString(2));
+            taxVariable.setZone(resultSet.getString(3));
+            taxVariable.setNetTaxAbleIncome(resultSet.getInt(4));
+            taxVariable.setTaxLiabilityAmount(resultSet.getInt(5));
+            taxVariable.setTotalPayAbleTaxAmount(resultSet.getInt(6));
+            taxVariable.setTotalPayAbleTaxAmountM(resultSet.getInt(7));
+            taxVariables.add(taxVariable);
+            model.addAttribute("taxVariables",taxVariables);
+        }
+        for(TaxVariable taxVariable: taxVariables) {
+            System.out.println(taxVariable.getId());
+        }
+        return "User/tax/TaxCalculatorHistory";
+    }
+
+    @RequestMapping("/listTaxHistory")
+    public String listTaxHistory(Model model) throws SQLException {
+        List<TaxHistory> taxHistories= taxHistoryService.getAll();
+        for(TaxHistory taxHistory: taxHistories) {
+            System.out.println(taxHistory.getId());
+        }
+        model.addAttribute("taxHistories",taxHistories);
+        return "User/tax/TaxCalculatorHistory";
+
+    }
+
+    @RequestMapping("/listTaxHistory2")
+    public String listTaxHistory2(Model model) throws SQLException {
+        List<TaxHistory> taxHistories= taxHistoryService.getAll();
+        List<TaxHistory> tranHis = new ArrayList<TaxHistory>();
+        Authentication auth2 = SecurityContextHolder.getContext().getAuthentication();
+        for(TaxHistory taxHistory:taxHistories){
+            if(taxHistory.getUsername().equals(auth2.getName())){
+                TaxHistory taxHistory1=new TaxHistory();
+                taxHistory1.setUsername(taxHistory.getUsername());
+                taxHistory1.setTaxPayerCategory(taxHistory.getTaxPayerCategory());
+                taxHistory1.setZone(taxHistory.getZone());
+                taxHistory1.setNetTaxAbleIncome(taxHistory.getNetTaxAbleIncome());
+                taxHistory1.setTaxLiabilityAmount(taxHistory.getTaxLiabilityAmount());
+                taxHistory1.setTotalPayAbleTaxAmountM(taxHistory.getTotalPayAbleTaxAmountM());
+                taxHistory1.setTotalPayAbleTaxAmount(taxHistory.getTotalPayAbleTaxAmount());
+                tranHis.add(taxHistory1);
+            }
+        }
+        for(TaxHistory taxHistory: taxHistories) {
+            System.out.println(taxHistory.getId());
+        }
+        model.addAttribute("taxHistories",tranHis);
+        return "User/tax/TaxCalculatorHistory";
+
+    }
+    @RequestMapping("/deleteTaxHistory")
+    public String deleteTaxHistory(@RequestParam("id") Long id) throws SQLException {
+        taxHistoryService.delete(id);
+        return "Lead/Admin";
+
     }
 
 }

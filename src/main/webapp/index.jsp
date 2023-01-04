@@ -16,7 +16,8 @@
 </head><html>
 <body>
 <br>
-<p><a href="users/list">User List</a></p>
+<p><a href="http://localhost:8080/5_Tuhin_Git_war_exploded/users/create">Registration</a></p>
+<p><a href="users/home">User</a></p>
 <p><a href="authorities/list">Authority List</a></p>
 <p><a href="admins/home">Admin</a></p>
 </body>

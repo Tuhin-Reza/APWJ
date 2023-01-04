@@ -22,9 +22,9 @@
 <form:form action="update" modelAttribute="authority">
   <table>
     <tr>
-      <td>Authority Name</td>
+      <td></td>
       <td>
-        <form:input path="authority_id" id="for" readonly="true"/>
+        <form:input  type="hidden" path="authority_id" id="for" readonly="true"/>
         <form:errors path="authority_id" cssClass="error"/>
       </td>
     </tr>

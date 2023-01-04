@@ -18,8 +18,8 @@ public class TaxZone {
     private String zone;
 
     @NotNull(message = "*")
-    @Column(name ="percentage")
-    private Double percentage;
+    @Column(name ="amount")
+    private Double amount;
 
     public Long getId() {
         return id;
@@ -37,11 +37,11 @@ public class TaxZone {
         this.zone = zone;
     }
 
-    public Double getPercentage() {
-        return percentage;
+    public Double getAmount() {
+        return amount;
     }
 
-    public void setPercentage(Double percentage) {
-        this.percentage = percentage;
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 }

@@ -15,7 +15,6 @@
 </head>
 <body>
 <table>
-    <input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/createExemptedPercentage';return false;"><br>
 <form:form action="submitExemptedPercentage" modelAttribute="exemptedPercentage">
     <tr>
         <td>Name :</td>
@@ -39,7 +38,6 @@
     </tr>
 </form:form>
 </table>
-
-
+<input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br>
 </body>
 </html>

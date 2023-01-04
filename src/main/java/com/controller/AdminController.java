@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -27,6 +28,7 @@ public class AdminController {
     private  TaxZoneService taxZoneService;
     private  UserService userService;
     private  AuthorityService authorityService;
+    private  TaxHistoryService taxHistoryService;
 
     public AdminController(ExemptedPercentageService exemptedPercentageService,RestAmountTaxPayService restAmountTaxPayService,TaxPayerCategoryService taxPayerCategoryService,TaxRatePayCatService taxRatePayCatService,TaxZoneService taxZoneService,UserService userService,AuthorityService authorityService) {
         this.exemptedPercentageService=exemptedPercentageService;
@@ -61,7 +63,7 @@ public class AdminController {
     public String submitExemptedPercentage(@Valid @ModelAttribute("exemptedPercentage") ExemptedPercentage exemptedPercentage, BindingResult bindingResult)  {
         if (!bindingResult.hasErrors()) {
             exemptedPercentageService.create(exemptedPercentage);
-            return "redirect:/admins/listExemptedPercentageList";
+            return "redirect:/admins/listExemptedPercentage";
         }
         return "Lead/Exempted/create";
     }
@@ -118,7 +120,7 @@ public class AdminController {
     }
     @RequestMapping("/restAmountTaxPayEdit")
     public String edit2(@RequestParam("id") Long id, Model model) throws SQLException {
-        model.addAttribute("restAmountTaxPay", restAmountTaxPayService.get(id));
+        model.addAttribute("restAmountTaxPay",restAmountTaxPayService.get(id));
         return "Lead/RestAmountTaxPay/editRestAmountTaxPay";
     }
     @RequestMapping("/restAmountTaxPayUpdate")
@@ -275,7 +277,26 @@ public class AdminController {
         taxZoneService.delete(id);
         return "redirect:/admins/listTaxZone";
     }
+
+
+
     ////////////////////////////////////------- User -------------////////////////////////////////////////////
+    @RequestMapping("/listTaxHistory")
+    public String listTaxHistory(Model model) throws SQLException {
+        List<TaxHistory> taxHistories= taxHistoryService.getAll();
+        for(TaxHistory taxHistory: taxHistories) {
+            System.out.println(taxHistory.getId());
+         }
+        model.addAttribute("taxHistories",taxHistories);
+        return "User/tax/TaxCalculatorHistory";
+
+    }
+    @RequestMapping("/deleteTaxHistory")
+    public String deleteTaxHistory(@RequestParam("id") Long id) throws SQLException {
+        taxHistoryService.delete(id);
+        return "Lead/Admin";
+
+    }
     ////////////////////////////////////------- Authority -------------////////////////////////////////////////////
 
 

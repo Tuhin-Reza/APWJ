@@ -21,10 +21,6 @@ public class TaxRatePayCat {
     @Column(name ="amount")
     private Double amount;
 
-    @NotNull(message ="*")
-    @Column(name ="percentage")
-    private Double percentage;
-
 
     public Long getId() {
         return id;
@@ -50,11 +46,4 @@ public class TaxRatePayCat {
         this.amount = amount;
     }
 
-    public Double getPercentage() {
-        return percentage;
-    }
-
-    public void setPercentage(Double percentage) {
-        this.percentage = percentage;
-    }
 }

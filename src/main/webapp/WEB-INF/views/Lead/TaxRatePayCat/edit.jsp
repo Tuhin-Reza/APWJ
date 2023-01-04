@@ -26,22 +26,15 @@
         <tr>
             <td>Category:</td>
             <td>
-                <form:input path="category" id="category"/><br>
+                <form:input  path="category" id="category" readonly="true"/><br>
                 <form:errors path="category" cssClass="error"/>
             </td>
         </tr>
         <tr>
             <td>Amount :</td>
             <td>
-                <form:input path="amount" id="amount"/><br>
+                <form:input type="number" path="amount" id="amount"/><br>
                 <form:errors path="amount" cssClass="error"/>
-            </td>
-        </tr>
-        <tr>
-            <td>Percentage:</td>
-            <td>
-                <form:input path="percentage" id="percentage"/><br>
-                <form:errors path="percentage" cssClass="error"/>
             </td>
         </tr>
         <tr>

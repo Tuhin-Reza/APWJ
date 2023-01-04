@@ -19,14 +19,14 @@
     <tr>
         <td>Amount :</td>
         <td>
-            <form:input path="amount" id="amount"/><br>
+            <form:input type="number" path="amount" id="amount"/><br>
             <form:errors path="amount" cssClass="error"/>
         </td>
     </tr>
     <tr>
         <td>Percentage:</td>
         <td>
-            <form:input path="percentage" id="percentage"/><br>
+            <form:input type="number" path="percentage" id="percentage"/><br>
             <form:errors path="percentage" cssClass="error"/>
         </td>
     </tr>

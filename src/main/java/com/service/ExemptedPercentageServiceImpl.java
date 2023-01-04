@@ -1,12 +1,11 @@
 package com.service;
 
 import com.domain.ExemptedPercentage;
-import com.domain.User;
 import com.repository.ExemptedPercentageRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
+
 import java.util.List;
 
 @Service

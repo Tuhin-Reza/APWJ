@@ -15,6 +15,7 @@
 </head>
 <body>
 <input type="button" value="Add RestAmountTaxPay" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/createRestAmountTaxPay';return false;"><br><br>
+<form:form>
 <c:if test="${!empty restAmountTaxPays}">
     <table align="left" border="1">
         <thead>
@@ -31,16 +32,17 @@
                     <c:param name="id" value="${restAmountTaxPay.id}" />
                 </c:url>
                 <c:url var="deleteLink" value="/admins/deleteRestAmountTaxPay">
-                    <c:param name="id" value="${restAmountTaxPay.id}" />
+                    <c:param name="id" value="${restAmountTaxPay.id}"/>
                 </c:url>
                 <td>${restAmountTaxPay.amount}</td>
-                <td>${restAmountTaxPay.percentage}</td>
+                <td>${restAmountTaxPay.percentage} %</td>
                 <td><a href="${updateLink}">Update</a> | <a href="${deleteLink}">Delete</a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </c:if>
+</form:form>
 <br><br><br>
 <input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br><br>
 </body>

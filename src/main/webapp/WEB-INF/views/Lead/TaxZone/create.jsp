@@ -24,10 +24,10 @@
         </td>
     </tr>
     <tr>
-        <td>percentage:</td>
+        <td>Amount:</td>
         <td>
-            <form:input path="percentage" id="percentage"/><br>
-            <form:errors path="percentage" cssClass="error"/>
+            <form:input type="number" path="amount" id="amount"/><br>
+            <form:errors path="amount" cssClass="error"/>
         </td>
     </tr>
     <tr>

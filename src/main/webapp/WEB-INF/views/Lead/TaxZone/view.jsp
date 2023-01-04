@@ -21,7 +21,7 @@
         <thead>
         <tr>
             <th>Zone</th>
-            <th>Percentage</th>
+            <th>Amount</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -35,7 +35,7 @@
                     <c:param name="id" value="${taxZone.id}"/>
                 </c:url>
                 <td>${taxZone.zone}</td>
-                <td>${taxZone.percentage}</td>
+                <td>${taxZone.amount}</td>
                 <td><a href="${updateLink}">Update</a> | <a href="${deleteLink}">Delete</a></td>
             </tr>
         </c:forEach>
@@ -43,7 +43,7 @@
     </table>
 </c:if>
 </form:form><br>
-<br>
+<br><br>
 <input type="button" value="Back" onclick="window.location.href='http://localhost:8080/5_Tuhin_Git_war_exploded/admins/home';return false;"><br>
 </body>
 </html>

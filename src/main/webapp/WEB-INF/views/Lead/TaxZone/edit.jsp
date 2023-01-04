@@ -17,7 +17,7 @@
 <table>
     <form:form action="updateTaxZone" modelAttribute="taxZone">
         <tr>
-            <td>Id</td>
+            <td></td>
             <td>
                 <form:input type="hidden" path="id" id="id"/><br>
                 <form:errors path="id" cssClass="error"/>
@@ -32,10 +32,10 @@
             </td>
         </tr>
         <tr>
-            <td>percentage:</td>
+            <td>Amount:</td>
             <td>
-                <form:input path="percentage" id="percentage"/><br>
-                <form:errors path="percentage" cssClass="error"/>
+                <form:input type="number" path="amount" id="amount"/><br>
+                <form:errors path="amount" cssClass="error"/>
             </td>
         </tr>
         <tr>
